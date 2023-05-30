@@ -45,14 +45,16 @@ def get_reviews_from_api():
         else:
             print('Request failed with status code:', response.status_code)
             break
-
+    
+    # convert file to dataframe
+    df = pd.DataFrame(all_reviews)
     # Specify the file path to save the CSV file
     file_path = '/home/airflow/data/raw_review_from_api.csv'
     # Save the DataFrame as a CSV file
     df.to_csv(file_path, index=False)
 
 def adjust_format():
-    df = pd.read_csv('/home/airflow/data/review_from_api.csv')
+    df = pd.read_csv('/home/airflow/data/raw_review_from_api.csv')
     df = df.drop('multimedia', axis=1)
     df['opening_date'] = df['opening_date'].fillna('Unknown')
     df['mpaa_rating'] = df['mpaa_rating'].replace('', 'Unknown')
