@@ -1,4 +1,4 @@
-# Docker_Airflow
+# Automated API Data Extraction Workflow
 - Developed a data extraction workflow using Apache Airflow, Docker, and Docker Compose.
 - Retrieved movie reviews from the New York Times API and saved them as CSV files.
 - Utilized Docker and Docker Compose for containerization and dependency management.
